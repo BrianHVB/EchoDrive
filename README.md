@@ -1,2 +1,2 @@
 # EchoDrive
-Any OS. Fully encrypted, Fully installed, Fully portable
+Any OS. Fully encrypted. Fully installed. Fully portable.
