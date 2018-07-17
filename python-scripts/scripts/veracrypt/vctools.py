@@ -1,17 +1,25 @@
 import click
+import subprocess
+
 echo = click.echo
+PIPE = subprocess.PIPE
+
+@click.group()
+def cli():
+    pass
 
 
-@click.command()
-@click.option('--name', default='World', help="any name")
-@click.option('--count', type=int, default=1, help="number of times to be greeted")
-@click.argument('output', type=click.File('w'), default='-', required=False)
-def test(name, count, output):
+@cli.command(name="mount-pass")
+@click.option('--name', '-n', required=True,
+              help="The name of the pass entry containing the VeraCrypt password")
+@click.argument('partition', type=click.Path(exists=True))
+@click.argument('mount-point', type=click.Path(exists=True))
+def mount_using_pass(name, partition, mount_point):
     """
-    A basic greeter script.
-    Usage: hello [options] <output_file>
-        Where <output_file> is the path to a file, or the string '-' for stdout.
+    Mount a VeraCrypt partition using a password stored in the app 'pass'
+    Usage: mount-pass [-n, --name "entry_name] <partition> <mount_point>
     """
-
-    for i in range(count):
-        echo("Hello {}".format(name), file=output)
+    pass_call = subprocess.run(['pass', name], stdout=PIPE, stderr=PIPE, universal_newlines=True)
+    echo("error: {}\nvalue: {}".format(pass_call.stderr.strip(), pass_call.stdout.strip()))
+    password = pass_call.stdout
+    echo(password)

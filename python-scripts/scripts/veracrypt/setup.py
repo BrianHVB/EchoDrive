@@ -9,6 +9,6 @@ setup (
     ],
     entry_points='''
         [console_scripts]
-        hello=vctools:test
+        vc-tools=vctools:cli
     '''
 )
