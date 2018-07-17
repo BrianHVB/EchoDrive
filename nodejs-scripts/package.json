@@ -6,6 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "hello": "./scripts/mount_veracrypt.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BrianHVB/EchoDrive.git"
@@ -15,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/BrianHVB/EchoDrive/issues"
   },
-  "homepage": "https://github.com/BrianHVB/EchoDrive#readme"
+  "homepage": "https://github.com/BrianHVB/EchoDrive#readme",
+  "devDependencies": {
+    "shelljs": "latest"
+  },
+  "dependencies": {
+    "chalk": "^2.4.1",
+    "commander": "^2.16.0"
+  }
 }
