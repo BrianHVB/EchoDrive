@@ -9,6 +9,6 @@ setup (
     ],
     entry_points='''
         [console_scripts]
-        vc-tools=vctools:cli
+        vctools=vctools:cli
     '''
 )
